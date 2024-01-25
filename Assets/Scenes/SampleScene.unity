@@ -970,10 +970,12 @@ MonoBehaviour:
   - {fileID: 2009201891}
   - {fileID: 1434293786}
   - {fileID: 942021949}
+  - {fileID: 2072967060}
   trainerList:
   - {fileID: 11400000, guid: 365245eb1b7535342817be72c166ef0c, type: 2}
   - {fileID: 11400000, guid: 293f949d5147c164d832758d3a181985, type: 2}
   - {fileID: 11400000, guid: 0df290c86eebcdd46b496ba7425816f3, type: 2}
+  - {fileID: 11400000, guid: f41de757da895d54f841fa2cd7b90bf6, type: 2}
 --- !u!1 &1434293784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,6 +1470,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2092557075}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2072967058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2072967059}
+  - component: {fileID: 2072967060}
+  m_Layer: 0
+  m_Name: Ratata
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2072967059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072967058}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2092557075}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2072967060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072967058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c453255d7d09554eb8573e9dca3d874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pokemonObject: {fileID: 11400000, guid: 4b766290b67daf94b92d29ea9d33eb9a, type: 2}
 --- !u!1 &2092557074
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,6 +1545,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2009201892}
+  - {fileID: 2072967059}
   - {fileID: 1434293785}
   - {fileID: 942021948}
   m_Father: {fileID: 1418052980}
@@ -1532,6 +1580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trainers: []
+  trainerWithoutPokemon: {fileID: 0}
   trainerAreReady: 0
   seed: {fileID: 0}
 --- !u!4 &2101563255
