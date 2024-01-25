@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IHealer 
 {
-    void FullHeal();
-    void Cook();
+    void FullHeal(Pokemon _pokemon);
+    void Cook(List<Pokemon> _pokemonActive);
 }

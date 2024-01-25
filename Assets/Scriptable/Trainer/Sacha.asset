@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e404aa31874cf754c86699387909ed5a, type: 3}
   m_Name: Sacha
   m_EditorClassIdentifier: 
-  pokemonTeam: []
+  numberOfPokemon: 2
   trainerName: Sacha
+  isHealer: 0

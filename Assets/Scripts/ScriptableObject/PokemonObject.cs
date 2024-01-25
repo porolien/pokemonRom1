@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static ChooseAType;
@@ -7,7 +6,7 @@ using static ChooseAType;
 public class PokemonObject : ScriptableObject
 {
     public string pokemonName;
-    public int pv;
+    public int hp;
     public int attack;
     public int armor;
     public int speed;

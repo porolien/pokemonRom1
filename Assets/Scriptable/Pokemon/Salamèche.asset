@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "Salam\xE8che"
   m_EditorClassIdentifier: 
   pokemonName: "Salam\xE8che"
-  pv: 100
+  hp: 100
   attack: 60
   armor: 40
   speed: 60

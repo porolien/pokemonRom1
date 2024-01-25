@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: "Flamm\xE8che"
   m_EditorClassIdentifier: 
   moveName: "Flamm\xE8che"
-  attackPourcentage: 100
+  attackPourcentage: 1
   moveType: 0
   isASpecialMove: 0
+  isASelfMove: 0
+  usePourcent: 1

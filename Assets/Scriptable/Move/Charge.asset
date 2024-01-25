@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Charge
   m_EditorClassIdentifier: 
   moveName: Charge
-  attackPourcentage: 20
+  attackPourcentage: 0.2
   moveType: 3
   isASpecialMove: 0
+  isASelfMove: 0
+  usePourcent: 1

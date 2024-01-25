@@ -1,23 +1,89 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Trainer : Human
 {
-    TrainerObject trainerObject;
-    public List<PokemonObject> pokemonTeam;
+    public TrainerObject trainerObject;
+    public List<Pokemon> pokemonTeam;
+    public bool isMajorTrainer;
+    public int numberOfPokemonKO;
 
-    void CreateTeam()
+    private void Start()
     {
-        //Init Pokemon of trainer
+        TrainerManager.Instance.AddATrainer(this);
+        foreach (Pokemon pokemon in pokemonTeam) 
+        {
+            pokemon.PokemonKOEvent += PokemonIsKo;
+        }
+        SentenceEncounter();
+        StartCoroutine(BeginFight());
     }
-    void ThrowAPokeball()
+    public void CreateTeam(List<Pokemon> _pokemonTeam)
     {
-        Debug.Log("Go " + pokemonTeam[0].pokemonName);
+        pokemonTeam = _pokemonTeam;
+    }
+    void ThrowAPokeball(Pokemon _pokemon)
+    {
+        Debug.Log("Go " + _pokemon.PokemonObject.pokemonName);
+        foreach(Trainer allTrainer in TrainerManager.Instance.trainers) 
+        {
+            if(allTrainer.gameObject != this.gameObject)
+            { 
+                FindPokemonActive().Move += allTrainer.FindPokemonActive().ReceivedAttack;
+                if(numberOfPokemonKO != 0)
+                {
+                    allTrainer.FindPokemonActive().Move -= pokemonTeam[numberOfPokemonKO-1].ReceivedAttack;
+                    allTrainer.FindPokemonActive().Move += FindPokemonActive().ReceivedAttack;
+                }
+            }
+        }
+    }
+
+    void SentenceEncounter()
+    {
+        Debug.Log(trainerObject.trainerName + " may would like to battle");
     }
 
     void initBattle()
     {
-        Debug.Log(trainerObject.trainerName + " may would like to battle");
+        ThrowAPokeball(FindPokemonActive());
+        TrainerManager.Instance.trainerAreReady = true;
+    }
+
+    public void PokemonIsKo()
+    {
+        numberOfPokemonKO++;
+        if(numberOfPokemonKO < pokemonTeam.Count) 
+        {
+            ThrowAPokeball(FindPokemonActive());
+        }
+        else
+        {
+            Defeat();
+        }
+    }
+
+    void Defeat()
+    {
+        TrainerManager.Instance.trainerAreReady = false;
+        TrainerManager.Instance.ChooseTheWinner(this);
+    }
+
+    public void Victory()
+    {
+        Debug.Log(trainerObject.trainerName + " is the winner!");
+    }
+
+    public Pokemon FindPokemonActive()
+    {
+        return pokemonTeam[numberOfPokemonKO];
+    }
+
+    IEnumerator BeginFight()
+    {
+        yield return new WaitForSeconds(0.1f);
+        initBattle();
     }
 }
